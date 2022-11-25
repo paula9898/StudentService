@@ -1,8 +1,8 @@
 ﻿namespace CollectionsExercise.ExerciseStudent.Models
 {
-    public class StudentsAcademy
+    public class StudentsAcademy : DefaultModel
     {
-        public int Id { get; set; }
+        public int StudentId { get; set; }
 
         public int? AcademyId  { get; set; }
         

@@ -47,7 +47,10 @@
             this.ClbSex = new System.Windows.Forms.CheckedListBox();
             this.LblAcademy = new System.Windows.Forms.Label();
             this.CmbAcademy = new System.Windows.Forms.ComboBox();
+            this.academyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DgvStudent = new System.Windows.Forms.DataGridView();
+            this.Tblpn1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,18 +58,15 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Birthdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adddate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tblpn1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.academyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.Tblpn3.SuspendLayout();
             this.Tblpn2.SuspendLayout();
             this.Tblpn4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.academyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvStudent)).BeginInit();
             this.Tblpn1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.academyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // studentBindingSource1
@@ -260,6 +260,10 @@
             this.CmbAcademy.UseWaitCursor = true;
             this.CmbAcademy.SelectedIndexChanged += new System.EventHandler(this.CmbAcademy_SelectedIndexChanged);
             // 
+            // academyBindingSource
+            // 
+            this.academyBindingSource.DataSource = typeof(CollectionsExercise.ExerciseStudent.Models.Academy);
+            // 
             // DgvStudent
             // 
             this.DgvStudent.AutoGenerateColumns = false;
@@ -281,6 +285,33 @@
             this.DgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvStudent.Size = new System.Drawing.Size(804, 323);
             this.DgvStudent.TabIndex = 1;
+            // 
+            // Tblpn1
+            // 
+            this.Tblpn1.ColumnCount = 2;
+            this.Tblpn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.5F));
+            this.Tblpn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.5F));
+            this.Tblpn1.Controls.Add(this.Tblpn2, 1, 0);
+            this.Tblpn1.Controls.Add(this.Tblpn3, 0, 0);
+            this.Tblpn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tblpn1.Location = new System.Drawing.Point(0, 0);
+            this.Tblpn1.Name = "Tblpn1";
+            this.Tblpn1.RowCount = 1;
+            this.Tblpn1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Tblpn1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Tblpn1.Size = new System.Drawing.Size(1173, 469);
+            this.Tblpn1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(357, 206);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -333,42 +364,11 @@
             // 
             // Adddate
             // 
-            this.Adddate.DataPropertyName = "Adddate";
+            this.Adddate.DataPropertyName = "DateAdd";
             this.Adddate.HeaderText = "Adddate";
             this.Adddate.MinimumWidth = 6;
             this.Adddate.Name = "Adddate";
             this.Adddate.Width = 125;
-            // 
-            // Tblpn1
-            // 
-            this.Tblpn1.ColumnCount = 2;
-            this.Tblpn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.5F));
-            this.Tblpn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.5F));
-            this.Tblpn1.Controls.Add(this.Tblpn2, 1, 0);
-            this.Tblpn1.Controls.Add(this.Tblpn3, 0, 0);
-            this.Tblpn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Tblpn1.Location = new System.Drawing.Point(0, 0);
-            this.Tblpn1.Name = "Tblpn1";
-            this.Tblpn1.RowCount = 1;
-            this.Tblpn1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Tblpn1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.Tblpn1.Size = new System.Drawing.Size(1173, 469);
-            this.Tblpn1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(357, 206);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // academyBindingSource
-            // 
-            this.academyBindingSource.DataSource = typeof(CollectionsExercise.ExerciseStudent.Models.Academy);
             // 
             // FrmStudent
             // 
@@ -389,10 +389,10 @@
             this.Tblpn2.ResumeLayout(false);
             this.Tblpn4.ResumeLayout(false);
             this.Tblpn4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.academyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvStudent)).EndInit();
             this.Tblpn1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.academyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -423,6 +423,11 @@
         private Label LblAgeTo;
         private CheckedListBox ClbSex;
         private DataGridView DgvStudent;
+        private TableLayoutPanel Tblpn1;
+        private PictureBox pictureBox1;
+        private Label LblAcademy;
+        private ComboBox CmbAcademy;
+        private BindingSource academyBindingSource;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -430,10 +435,5 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn Birthdate;
         private DataGridViewTextBoxColumn Adddate;
-        private TableLayoutPanel Tblpn1;
-        private PictureBox pictureBox1;
-        private Label LblAcademy;
-        private ComboBox CmbAcademy;
-        private BindingSource academyBindingSource;
     }
 }

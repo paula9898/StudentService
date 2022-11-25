@@ -50,7 +50,7 @@ namespace CollectionsExercise.ExerciseStudent.Repositories
             _studentsacademis = dataSet.Tables[0].AsEnumerable()
                 .Select(dataRow => new StudentsAcademy
                 {
-                    Id = dataRow.Field<int>("STUDENT_ID"),
+                    StudentId = dataRow.Field<int>("STUDENT_ID"),// nazwa zmieniona
 
                     AcademyId = dataRow.Field <int?>("ACADEMY_ID"),
                     DateAdd = dataRow.Field<DateTime>("ADDDATE")

@@ -1,6 +1,6 @@
 ﻿using CollectionsExercise.ExerciseStudent;
 using CollectionsExercise.ExerciseStudent.Models;
-using CollectionsExercise.Services;
+using CollectionsExercise.ExerciseStudent.Services;
 using System.Data;
 
 namespace CollectionsExercise
@@ -225,46 +225,7 @@ namespace CollectionsExercise
 
         private void ClbSex_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadStudentsToGrid();
-
-            var checkedListBox = (CheckedListBox)sender;
-            string selectedItem = checkedListBox.SelectedItem.ToString();
-            if (_isManSelected && selectedItem.ToUpper() == "MEZCZYZNA" )
-            {
-                _isManSelected = false;
-
-            }
-            else if (!_isManSelected && selectedItem.ToUpper() == "MEZCZYZNA")
-            {
-                _isManSelected = true;
-            }
-            else if (_isWomanSelected && selectedItem.ToUpper() == "KOBIETA")
-            {
-                _isWomanSelected = false;
-            }
-            else
-            {
-                _isWomanSelected = true;
-            }
-
-            if (_isWomanSelected && _isManSelected)
-            {
-                _students = _students.Where(x => x.Sex == "kobieta" || x.Sex == "mezczyzna").ToList();
-            }
-            else if (!_isWomanSelected && _isManSelected)
-            {
-                _students = _students.Where(x => x.Sex == "mezczyzna").ToList();
-            }
-            else if (_isWomanSelected && !_isManSelected)
-            {
-                _students = _students.Where(x => x.Sex == "kobieta").ToList();
-            }
-            else
-            {
-                _students = new List<Student>();
-            }
-
-            DgvStudent.DataSource = _students;
+            SetFilteredSex(sender);
         }
 
         private void LoadStudentsToGrid()
@@ -315,6 +276,59 @@ namespace CollectionsExercise
 
         private void CmbAcademy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SetFilteredAcademy();
+            SetFilteredSex(sender);
+            SetBirthdayFiltr();
+
+        }
+
+        private void SetFilteredSex(object sender)
+        {
+            LoadStudentsToGrid();
+
+            var checkedListBox = (CheckedListBox)sender;
+            string selectedItem = checkedListBox.SelectedItem.ToString();
+            if (_isManSelected && selectedItem.ToUpper() == "MEZCZYZNA")
+            {
+                _isManSelected = false;
+
+            }
+            else if (!_isManSelected && selectedItem.ToUpper() == "MEZCZYZNA")
+            {
+                _isManSelected = true;
+            }
+            else if (_isWomanSelected && selectedItem.ToUpper() == "KOBIETA")
+            {
+                _isWomanSelected = false;
+            }
+            else
+            {
+                _isWomanSelected = true;
+            }
+
+            if (_isWomanSelected && _isManSelected)
+            {
+                _students = _students.Where(x => x.Sex == "kobieta" || x.Sex == "mezczyzna").ToList();
+            }
+            else if (!_isWomanSelected && _isManSelected)
+            {
+                _students = _students.Where(x => x.Sex == "mezczyzna").ToList();
+            }
+            else if (_isWomanSelected && !_isManSelected)
+            {
+                _students = _students.Where(x => x.Sex == "kobieta").ToList();
+            }
+            else
+            {
+                _students = new List<Student>();
+            }
+
+            DgvStudent.DataSource = _students;
+
+        }
+
+        private void SetFilteredAcademy()
+        {
             LoadStudentsToGrid();
             var studentService = new StudentService();
             // _academis = studentService.GetAcademy();
@@ -322,7 +336,7 @@ namespace CollectionsExercise
 
             var chosenAcademy = (Academy)CmbAcademy.SelectedItem;
 
-            
+
 
             //var academy = _academis.Where(x => x.Id == chosenAcademy.Id).FirstOrDefault();
 
@@ -336,7 +350,7 @@ namespace CollectionsExercise
                 foreach (var student in _studentsAcademies)
                 {
                     var editedStudent = new Student();
-                    int indexStudentToEdit = _students.FindIndex(x => x.Id == student.Id);
+                    int indexStudentToEdit = _students.FindIndex(x => x.Id == student.StudentId);
                     editedStudent = _students[indexStudentToEdit];
                     chosenStudents.Add(editedStudent);
                 }
@@ -345,5 +359,7 @@ namespace CollectionsExercise
             }
 
         }
+
+    
     }
 }
